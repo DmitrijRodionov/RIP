@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Список достопримечательностей{% endblock %}
+
+{% block content %}
+<ul>
+    {% for building in data.buildings %}
+        <li><a href="{% url 'building_url' building.name %}">{{ building.name }}</a> </li>
+    {% empty %}
+        <li>Список пуст</li>
+    {% endfor %}
+</ul>
+{% endblock %}

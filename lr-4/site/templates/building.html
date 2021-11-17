@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Достопримечательность: {{ data.name }}{% endblock %}
+
+{% block content %}
+    <div>{{ data.name }} -
+        {% for building in data.buildings %}
+            {% if building.name == data.name %}
+                {{ building.desc }}
+                <br>
+                 <img src="{% static building.img %}"  alt="{% static building.img %}">
+
+            {% endif %}
+        {% endfor %}
+    </div>
+    <br><a href="{% url 'main' %}">На главную</a> </br>
+{% endblock %}
